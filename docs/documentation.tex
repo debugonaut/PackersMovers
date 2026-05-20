@@ -50,21 +50,25 @@
 \section{Project Overview}
 SwiftMove is a modern, high-performance landing page tailored for a Packers and Movers business. Built as an alternative to traditional WordPress setups, it delivers superior performance, customization, and security. This project is a submission for a Web Developer Intern assignment, demonstrating deep technical capability in both frontend UI/UX and backend API development. It utilizes React + Vite on the frontend and Node.js + Express on the backend, ensuring a production-ready, scalable architecture.
 
+The codebase has been refactored into a clean monorepo structure. All legacy, redundant, static root HTML/CSS assets have been removed, and the deployment is managed via a single Vercel project configuration linking the React client and Express server under a unified domain.
+
 \subsection*{Live Demo \& Repository}
 \begin{itemize}
-    \item \textbf{Live Demo:} \href{https://example.com}{[Add your deployment URL here]}
-    \item \textbf{GitHub:} \href{https://github.com/example/repo}{[Add your repository URL here]}
+    \item \textbf{Live Demo:} \href{https://packers-movers-bp8l.vercel.app}{https://packers-movers-bp8l.vercel.app}
+    \item \textbf{GitHub:} \href{https://github.com/debugonaut/PackersMovers}{https://github.com/debugonaut/PackersMovers}
 \end{itemize}
 
 \section{Features}
 \begin{itemize}
+    \item \textbf{Flat Outline Vector Illustration Aesthetic}: Shifted from the dark/orange template to a premium, retro-flat design using HSL cream background (\texttt{\#FBF5DD}), pale green cards (\texttt{\#E7E1B1}), dark green borders (\texttt{\#0D530E}), and thick offsets.
     \item \textbf{Fully Responsive Mobile-First Design}: Adapts seamlessly to all screen sizes.
-    \item \textbf{Sticky Animated Navbar}: Features scroll detection for dynamic background rendering.
-    \item \textbf{Framer Motion Animations}: Includes staggered animations and scroll-triggered reveals for enhanced UI interactivity.
-    \item \textbf{Service Cards}: Five elegantly designed service cards with engaging hover interactions.
-    \item \textbf{Validated Contact Form}: Robust validation using Zod on the frontend and express-validator on the backend.
-    \item \textbf{Rate Limiting}: Protects against spam with limits set at 5 requests per 15 minutes per IP.
-    \item \textbf{Email Delivery}: Integrated with the Resend API for reliable transactional email delivery.
+    \item \textbf{Sticky Animated Navbar}: Features scroll detection for dynamic cream background rendering.
+    \item \textbf{Framer Motion Animations}: Includes staggered animations, retro pop reveals, and hover offsets.
+    \item \textbf{6 Interactive Service Cards}: Upgraded from five to six fully integrated services by adding \textbf{Packing \& Unpacking} with customized detail assets.
+    \item \textbf{Emoji-to-SVG Transition}: Replaced all standard emojis (like 🎉, 🚚, and ❤️) with clean, high-quality, scalable SVG icons from the \texttt{react-icons} library for premium visual control.
+    \item \textbf{Validated Contact Form}: Robust validation using Zod schemas on the frontend and express-validator checks on the backend.
+    \item \textbf{Rate Limiting}: Protects against email spam with IP-based caps (5 requests per 15 minutes).
+    \item \textbf{Resend API with Lazy Loading}: Engineered an asynchronous environment-variable import resolution that lazily constructs the Resend SDK client to guarantee bulletproof initialization in serverless environments.
     \item \textbf{SEO \& Social Metadata}: Implements Open Graph, Twitter Cards, and JSON-LD LocalBusiness structured data.
     \item \textbf{Accessibility Compliance}: Utilizes ARIA attributes and semantic HTML to ensure usability for all.
     \item \textbf{Optimized Production Build}: Manual chunk splitting for caching and performance benefits.
@@ -84,7 +88,7 @@ Framer Motion & Animations \\
 React Hook Form & Form state management \\
 Zod & Frontend schema validation \\
 React Hot Toast & Notifications \\
-React Icons & Icon library \\
+React Icons & Premium SVG icon library (Fi/Fa/Gi) \\
 Node.js & Backend runtime \\
 Express & API framework \\
 express-validator & Backend validation \\
@@ -97,41 +101,38 @@ CORS & Cross-origin policy \\
 \end{tabularx}
 \end{table}
 
+\newpage
 \section{Project Structure}
 \dirtree{%
-.1 client/.
-.2 src/.
-.3 assets/.
-.4 hero.png\DTcomment{Hero section image asset}.
-.4 react.svg\DTcomment{React logo asset}.
-.4 vite.svg\DTcomment{Vite logo asset}.
-.3 components/.
-.4 ContactForm.jsx\DTcomment{Handles user inquiries and form validation}.
-.4 Footer.jsx\DTcomment{Site footer with links and information}.
-.4 Hero.jsx\DTcomment{Main hero section with call-to-action}.
-.4 Navbar.jsx\DTcomment{Navigation bar with scroll animations}.
-.4 Services.jsx\DTcomment{Displays the five service cards}.
-.3 hooks/.
-.4 useContactForm.js\DTcomment{Custom hook for form state and submission logic}.
-.3 utils/.
-.4 validators.js\DTcomment{Zod schemas for frontend form validation}.
-.3 App.jsx\DTcomment{Main application component layout}.
-.3 index.css\DTcomment{Global Tailwind CSS styles}.
-.3 main.jsx\DTcomment{React application entry point}.
-}
-\vspace{1em}
-\dirtree{%
-.1 server/.
-.2 middleware/.
-.3 rateLimiter.js\DTcomment{Limits request rates to prevent abuse}.
-.3 validator.js\DTcomment{Express-validator configuration for the API}.
-.2 routes/.
-.3 contact.js\DTcomment{Express router for contact form submission}.
-.2 services/.
-.3 emailService.js\DTcomment{Integration with Resend API for email delivery}.
-.2 index.js\DTcomment{Express server entry point and setup}.
-.2 package-lock.json\DTcomment{Dependency lockfile for backend}.
-.2 package.json\DTcomment{Backend project manifest and scripts}.
+.1 /.
+.2 vercel.json\DTcomment{Monorepo build configuration for Vercel}.
+.2 .env.example\DTcomment{Template for local configuration}.
+.2 .gitignore\DTcomment{Git exclusion list}.
+.2 README.md\DTcomment{Main project instructions}.
+.2 docs/\DTcomment{Documentation directory}.
+.3 documentation.tex\DTcomment{This technical documentation}.
+.2 client/\DTcomment{Frontend React workspace directory}.
+.3 src/.
+.4 assets/.
+.5 hero.png\DTcomment{Hero section illustration asset}.
+.4 components/.
+.5 ContactForm.jsx\DTcomment{Form with custom SVG icons and Zod schema validation}.
+.5 Footer.jsx\DTcomment{Social layout with pulsing SVG heart icon}.
+.5 Hero.jsx\DTcomment{Split grid hero section with custom backdrop}.
+.5 Navbar.jsx\DTcomment{Sticky green/cream header navigation}.
+.5 Services.jsx\DTcomment{Displays the six service cards}.
+.4 App.jsx\DTcomment{Main application component layout}.
+.4 index.css\DTcomment{Custom theme styles and retro offsets}.
+.4 main.jsx\DTcomment{React application entry point}.
+.2 server/\DTcomment{Backend Express.js API workspace directory}.
+.3 middleware/.
+.4 rateLimiter.js\DTcomment{Enquiry rate limiters}.
+.4 validator.js\DTcomment{Payload validation logic including the 6th service}.
+.3 routes/.
+.4 contact.js\DTcomment{Routing handler for enquiries}.
+.3 services/.
+.4 emailService.js\DTcomment{Lazy-loaded Resend integration and email generator}.
+.3 index.js\DTcomment{Express core entry point}.
 }
 
 \section{Prerequisites}
@@ -158,21 +159,25 @@ CORS & Cross-origin policy \\
 \end{enumerate}
 
 \section{Environment Variables}
+To support the single-domain Vercel monorepo deployment, environment variables have been simplified. 
+
 \begin{table}[h!]
 \centering
 \begin{tabularx}{\textwidth}{l X l}
 \toprule
 \textbf{Variable} & \textbf{Description} & \textbf{Example Value} \\
 \midrule
-\texttt{PORT} & Port the Express server listens on & \texttt{5000} \\
-\texttt{CLIENT\_URL} & The frontend origin for CORS & \texttt{http://localhost:5173} \\
-\texttt{EMAIL\_FROM} & Verified sender email on Resend & \texttt{hello@yourdomain.com} \\
-\texttt{EMAIL\_TO} & Recipient email for enquiries & \texttt{your@email.com} \\
-\texttt{RESEND\_API\_KEY} & API key from resend.com dashboard & \texttt{re\_xxxxxxxxxxxx} \\
-\texttt{NODE\_ENV} & Environment mode & \texttt{development} or \texttt{production} \\
+\texttt{PORT} & Port the Express server listens on locally & \texttt{5001} \\
+\texttt{CLIENT\_URL} & The frontend origin for CORS verification & \texttt{https://packers-movers-bp8l.vercel.app} \\
+\texttt{EMAIL\_FROM} & Verified sender email on Resend & \texttt{onboarding@resend.dev} \\
+\texttt{EMAIL\_TO} & Recipient email for enquiries & \texttt{aadeshkhande9202@gmail.com} \\
+\texttt{RESEND\_API\_KEY} & API key from resend.com dashboard & \texttt{re\_ZD2rvTPb\_...} \\
+\texttt{NODE\_ENV} & Environment mode & \texttt{production} \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\noindent \textbf{Note on Frontend API Endpoint}: In a unified Vercel deployment, the React application automatically communicates with the Express backend using relative routing (e.g., \texttt{/api/contact}). Consequently, \texttt{VITE\_API_URL} is optional and can be left blank.
 
 \section{API Reference}
 \subsection*{Backend API}
@@ -184,7 +189,7 @@ CORS & Cross-origin policy \\
 
 \textbf{\texttt{POST /api/contact}}
 \begin{itemize}
-    \item \textbf{Description}: Request body is JSON with fields: \texttt{name} (string, required), \texttt{phone} (string, required, 10-digit Indian mobile), \texttt{service} (string, required, one of five enum values), \texttt{message} (string, optional, max 500 characters).
+    \item \textbf{Description}: Request body is JSON with fields: \texttt{name} (string, required), \texttt{phone} (string, required, 10-digit Indian mobile), \texttt{service} (string, required, one of six enum values), \texttt{message} (string, optional, max 500 characters).
     \item \textbf{Responses}:
         \begin{itemize}
             \item Success response HTTP 200: \texttt{\{ success: true, message: '...' \}}
@@ -203,18 +208,53 @@ CORS & Cross-origin policy \\
 \midrule
 \texttt{name} & Must be at least 2 characters long & Name must be at least 2 characters long \\
 \texttt{phone} & Must be a valid 10-digit Indian mobile number & Phone number must be 10 digits \\
-\texttt{service} & Must be one of the predefined service enum values & Please select a valid service \\
+\texttt{service} & Must be one of six allowed service strings & Please select a valid service \\
 \texttt{message} & Max 500 characters, optional & Message must be less than 500 characters \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\section{Deployment}
-\subsection*{Frontend}
-Explain how to run \texttt{npm run build} inside \texttt{client/}, which generates a \texttt{dist/} folder. This folder can be deployed to Vercel, Netlify, or any static host. On Vercel: connect the GitHub repo, set the root directory to \texttt{client/}, and add all environment variables in the dashboard.
+The list of allowed \texttt{service} strings includes:
+\begin{itemize}
+    \item \texttt{'home-relocation'}: Home Shifting
+    \item \texttt{'office-shifting'}: Office Relocation
+    \item \texttt{'vehicle-transport'}: Vehicle Transport
+    \item \texttt{'storage'}: Warehousing \& Storage
+    \item \texttt{'commercial-moving'}: Commercial Shifting
+    \item \texttt{'packing-unpacking'}: Packing \& Unpacking (the integrated 6th service)
+\end{itemize}
 
-\subsection*{Backend}
-The Express server can be deployed to Railway, Render, or Fly.io. Set all environment variables in the platform dashboard. Set \texttt{NODE\_ENV=production}. Ensure \texttt{CLIENT\_URL} is updated to the live frontend URL so CORS works correctly in production.
+\section{Monorepo Vercel Deployment}
+Rather than configuring separate Vercel projects for the frontend and backend, the entire monorepo is deployed together in a single Vercel project under one unified domain. This is made possible by the newly introduced root-level \texttt{vercel.json} configuration:
+
+\begin{lstlisting}[language=json, caption=Root-level vercel.json]
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    },
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "client/$1"
+    }
+  ]
+}
+\end{lstlisting}
+
+This setup automatically triggers the Vite React build inside \texttt{client/}, bundles all static assets, compiles the Express \texttt{server/index.js} entry point as a serverless Node.js function, and routes all \texttt{/api/*} endpoints to the backend while routing all other requests to the React SPA.
 
 \section{Assignment Compliance}
 \begin{table}[h!]
@@ -223,15 +263,15 @@ The Express server can be deployed to Railway, Render, or Fly.io. Set all enviro
 \toprule
 \textbf{Requirement} & \textbf{Status} & \textbf{Implementation} \\
 \midrule
-Header/Navbar & \checkmark & Sticky navbar built with Framer Motion scroll detection \\
-Hero Section & \checkmark & Engaging hero with CTA and preloaded LCP image \\
-Services Section & \checkmark & 5 interactive service cards (exceeds minimum of 3) \\
-Contact Form & \checkmark & Includes Name, Phone, Service dropdown, Message, Submit \\
-Mobile Responsive & \checkmark & Tailwind CSS mobile-first utility classes \\
-Basic Animations & \checkmark & Framer Motion staggered reveals and hover effects \\
-SEO Friendly Structure & \checkmark & Semantic HTML, Open Graph tags, JSON-LD schema \\
-Clean Code Structure & \checkmark & Separation of concerns, clear component hierarchy \\
-GitHub submission & \checkmark & Public repository with comprehensive documentation \\
+Header/Navbar & \checkmark & Sticky green/cream navbar with scroll detection \\
+Hero Section & \checkmark & engaging split layout with custom illustration and CTA \\
+Services Section & \checkmark & 6 interactive flat-bordered cards (exceeds requirement) \\
+Contact Form & \checkmark & Name, Phone, 6-Service dropdown, Message, SVGs \\
+Mobile Responsive & \checkmark & Responsive grid layouts and tailwind media queries \\
+Basic Animations & \checkmark & Staggered pop reveals and border hover offsets \\
+SEO Friendly Structure & \checkmark & Open Graph meta headers and JSON-LD schema \\
+Clean Code Structure & \checkmark & Standard monorepo structure, modular React hooks \\
+Unified Vercel deploy & \checkmark & Single-project deployment with root-level vercel.json \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -240,66 +280,54 @@ GitHub submission & \checkmark & Public repository with comprehensive documentat
 \section{Technical Architecture}
 
 \subsection{System Overview}
-The SwiftMove project is structured as a monorepo containing two workspaces — client and server. The client is a React application built with Vite, while the server is a Node.js API powered by Express. In development, the two workspaces communicate via Vite's local proxy to avoid CORS issues. In production, the client makes direct API calls to the deployed backend URL.
+The SwiftMove project operates as a monorepo containing two distinct workspaces: a Vite React client and an Express Node.js API. These are unified in production by the Vercel CDN router. Frontend form queries bypass cross-origin security concerns since both client and server are hosted on the same domain.
 
 \subsection{Architecture Diagram}
 \begin{verbatim}
-Browser
-  | (HTTP/HTTPS)
-  v
-Vite Dev Server (Port 5173 - Proxy)  /  CDN (Production)
-  |
-  | (HTTP POST /api/contact)
-  v
-Express API (Port 5000)
-  |
-  +- Rate Limiter Middleware
-  +- Validation Middleware
-  +- Route Handler
-  |
-  | (HTTPS POST)
-  v
-Resend API
-  |
-  | (SMTP)
-  v
-Email Inbox
+                         Browser Request
+                                |
+                                v
+                       Vercel CDN Router
+                                |
+         +----------------------+----------------------+
+         | (All other routes)                          | (Paths matching /api/*)
+         v                                             v
+Vite Static Build (/client/dist)             Express Serverless Function
+  [Theme: Cream & Green HSL]                   [Lazy-Loaded Resend API]
+         |                                             |
+         +-----------------------<---------------------+
+                       Form Data Submission
 \end{verbatim}
 
-\subsection{Frontend Architecture}
-The frontend follows a component-based architecture: \texttt{main.jsx} mounts \texttt{App.jsx} which composes all five section components in order. 
+\subsection{Resend Email System & Lazy Loading}
+To avoid initialization race conditions in serverless runtimes where static imports evaluate before environment configurations (such as \texttt{dotenv.config()}) take effect, the Resend client is initialized lazily:
 
-\textbf{Separation of Concerns:}
-Form logic lives in \texttt{useContactForm} hook, validation schema lives in \texttt{utils/validators.js}, and components only handle rendering. \texttt{react-hook-form} with \texttt{zodResolver} was chosen over manual state management — controlled inputs at scale cause unnecessary re-renders, uncontrolled inputs via RHF are more performant. The Vite proxy setup avoids hardcoded URLs.
+\begin{lstlisting}[language=JavaScript, caption=Lazy Initialization of Resend SDK]
+export const sendEnquiry = async (enquiryData) => {
+  // Lazily construct the Resend instance inside the handler
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  
+  return await resend.emails.send({
+    from: process.env.EMAIL_FROM,
+    to: process.env.EMAIL_TO,
+    subject: `New Enquiry from ${enquiryData.name}`,
+    html: generateEmailTemplate(enquiryData)
+  });
+};
+\end{lstlisting}
 
-\subsection{Backend Architecture}
-The middleware chain for the contact route executes in order:
-\begin{enumerate}
-    \item \textbf{Rate Limiter}: Runs first and rejects abusive IPs.
-    \item \textbf{Validator Chain}: Runs next and rejects malformed input.
-    \item \textbf{Route Handler}: Runs only if both pass, calling the email service.
-    \item \textbf{Response}: Result is sent back.
-\end{enumerate}
-Each layer is separate for single responsibility, testability, and reusability. Helmet is applied globally rather than per-route. The global error handler is registered last.
+\subsection{Premium Email Notification Template}
+The HTML template was fully redesigned to be robust against Dark Mode color inversion in visual email clients (like Gmail and Outlook). It employs a solid dark slate background card (\texttt{\#111827}), highly visible contrast colors (\texttt{\#F3F4F6} for headers, \texttt{\#9CA3AF} for labels), and a customized brand badge (\texttt{SM}) utilizing standard CSS parameters to bypass SVG blocking policies.
 
-\subsection{Security Decisions}
-\begin{itemize}
-    \item \textbf{CORS with explicit origin}: Prevents unauthorized cross-origin requests.
-    \item \textbf{Helmet headers}: Prevents clickjacking, MIME sniffing, XSS via headers.
-    \item \textbf{Payload size limit (10kb)}: Prevents request flooding.
-    \item \textbf{Rate limiting}: Prevents form spam and brute force.
-    \item \textbf{express-validator}: Prevents malformed or malicious input reaching the email service.
-    \item \textbf{No stack traces in production}: Prevents internal detail leakage.
-\end{itemize}
+\begin{figure}[h!]
+\centering
+\framebox[\linewidth]{\parbox{\linewidth}{\centering\vspace{2.5cm}\textbf{Placeholder: Email Notification Template Mockup}\\\textit{A premium, dark-mode safe Slate block featuring structured metadata and custom brand badge.}\vspace{2.5cm}}}
+\caption{Mockup of the redesigned SwiftMove Email Notification Template}
+\label{fig:email_notification}
+\end{figure}
 
-\subsection{Validation Strategy}
-Validation is applied on both the frontend with Zod and the backend with express-validator. Frontend validation gives instant user feedback and reduces unnecessary API calls, backend validation is the security layer that cannot be bypassed by disabling JavaScript or calling the API directly. Both schemas enforce identical rules, making the contract consistent end to end.
-
-\subsection{Email Delivery}
-Resend was chosen over Nodemailer because Resend has a modern SDK, better deliverability via dedicated infrastructure, and does not require managing SMTP credentials. The HTML email template surfaces all four fields clearly for the business owner reading the enquiry.
-
-\subsection{Performance Decisions}
-Vite manual chunk splitting separates vendor libraries like Framer Motion and React Icons into a separate chunk, improving caching since the vendor chunk changes less frequently than the app chunk. \texttt{whileInView} animations use \texttt{once: true} because replaying animations on scroll-up creates visual noise and hurts perceived performance. The hero image preload link in \texttt{index.html} matters for LCP score.
+\subsection{Visual Design Strategy}
+The flat outline art style uses high-contrast borders (\texttt{2px solid \#0D530E}) and solid offset drop shadows rather than radial gradients or Gaussian blurs. This creates a clean, illustrative vector aesthetic that is lightweight, highly legible, and performant. Emojis were replaced with SVG vectors from the \texttt{react-icons} library to maintain this clean art-style throughout the interface.
 
 \vspace{2em}
 \noindent\textit{MIT License — feel free to use this project as a reference.}

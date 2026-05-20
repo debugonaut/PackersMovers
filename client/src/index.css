@@ -1,0 +1,123 @@
+/* ── Tailwind v4 ── */
+@import "tailwindcss";
+
+/* ── Brand Design Tokens (Tailwind v4 CSS-first config) ── */
+@theme {
+  /* Colors */
+  --color-brand-primary: #E8480A;
+  --color-brand-dark: #0F0F0F;
+  --color-brand-surface: #1A1A1A;
+  --color-brand-muted: #6B7280;
+  --color-brand-light: #F5F5F0;
+
+  /* Font Families */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Box Shadow */
+  --shadow-glow: 0 0 20px rgba(232, 72, 10, 0.15), 0 0 60px rgba(232, 72, 10, 0.08);
+
+  /* Animations */
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* ── CSS Custom Properties (non-Tailwind consumers) ── */
+:root {
+  --brand-primary: #E8480A;
+  --brand-dark: #0F0F0F;
+  --brand-surface: #1A1A1A;
+  --brand-light: #F5F5F0;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ── Base Resets ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--brand-dark);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Component Layer ── */
+@layer components {
+  /* Section padding — scales up across breakpoints */
+  .section-padding {
+    padding: 4rem 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .section-padding {
+      padding: 5rem 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 6rem 3rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .section-padding {
+      padding: 7rem 4rem;
+    }
+  }
+
+  /* Container max-width + centered */
+  .container-max {
+    max-width: 80rem; /* 1280px / ~7xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover {
+    background-color: #c93d08;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(232, 72, 10, 0.25);
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 3px;
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}

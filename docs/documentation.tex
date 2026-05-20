@@ -1,0 +1,307 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{dirtree}
+
+% Colors for listings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{\textbf{SwiftMove — Packers \& Movers}\\Technical Documentation}
+\author{Web Developer Intern Project}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Project Overview}
+SwiftMove is a modern, high-performance landing page tailored for a Packers and Movers business. Built as an alternative to traditional WordPress setups, it delivers superior performance, customization, and security. This project is a submission for a Web Developer Intern assignment, demonstrating deep technical capability in both frontend UI/UX and backend API development. It utilizes React + Vite on the frontend and Node.js + Express on the backend, ensuring a production-ready, scalable architecture.
+
+\subsection*{Live Demo \& Repository}
+\begin{itemize}
+    \item \textbf{Live Demo:} \href{https://example.com}{[Add your deployment URL here]}
+    \item \textbf{GitHub:} \href{https://github.com/example/repo}{[Add your repository URL here]}
+\end{itemize}
+
+\section{Features}
+\begin{itemize}
+    \item \textbf{Fully Responsive Mobile-First Design}: Adapts seamlessly to all screen sizes.
+    \item \textbf{Sticky Animated Navbar}: Features scroll detection for dynamic background rendering.
+    \item \textbf{Framer Motion Animations}: Includes staggered animations and scroll-triggered reveals for enhanced UI interactivity.
+    \item \textbf{Service Cards}: Five elegantly designed service cards with engaging hover interactions.
+    \item \textbf{Validated Contact Form}: Robust validation using Zod on the frontend and express-validator on the backend.
+    \item \textbf{Rate Limiting}: Protects against spam with limits set at 5 requests per 15 minutes per IP.
+    \item \textbf{Email Delivery}: Integrated with the Resend API for reliable transactional email delivery.
+    \item \textbf{SEO \& Social Metadata}: Implements Open Graph, Twitter Cards, and JSON-LD LocalBusiness structured data.
+    \item \textbf{Accessibility Compliance}: Utilizes ARIA attributes and semantic HTML to ensure usability for all.
+    \item \textbf{Optimized Production Build}: Manual chunk splitting for caching and performance benefits.
+\end{itemize}
+
+\section{Tech Stack}
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Technology} & \textbf{Purpose} \\
+\midrule
+React 18 & UI component library \\
+Vite & Build tool and dev server \\
+Tailwind CSS & Utility-first styling \\
+Framer Motion & Animations \\
+React Hook Form & Form state management \\
+Zod & Frontend schema validation \\
+React Hot Toast & Notifications \\
+React Icons & Icon library \\
+Node.js & Backend runtime \\
+Express & API framework \\
+express-validator & Backend validation \\
+express-rate-limit & Rate limiting \\
+Helmet & HTTP security headers \\
+Resend & Transactional email \\
+Morgan & Request logging \\
+CORS & Cross-origin policy \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Project Structure}
+\dirtree{%
+.1 client/.
+.2 src/.
+.3 assets/.
+.4 hero.png\DTcomment{Hero section image asset}.
+.4 react.svg\DTcomment{React logo asset}.
+.4 vite.svg\DTcomment{Vite logo asset}.
+.3 components/.
+.4 ContactForm.jsx\DTcomment{Handles user inquiries and form validation}.
+.4 Footer.jsx\DTcomment{Site footer with links and information}.
+.4 Hero.jsx\DTcomment{Main hero section with call-to-action}.
+.4 Navbar.jsx\DTcomment{Navigation bar with scroll animations}.
+.4 Services.jsx\DTcomment{Displays the five service cards}.
+.3 hooks/.
+.4 useContactForm.js\DTcomment{Custom hook for form state and submission logic}.
+.3 utils/.
+.4 validators.js\DTcomment{Zod schemas for frontend form validation}.
+.3 App.jsx\DTcomment{Main application component layout}.
+.3 index.css\DTcomment{Global Tailwind CSS styles}.
+.3 main.jsx\DTcomment{React application entry point}.
+}
+\vspace{1em}
+\dirtree{%
+.1 server/.
+.2 middleware/.
+.3 rateLimiter.js\DTcomment{Limits request rates to prevent abuse}.
+.3 validator.js\DTcomment{Express-validator configuration for the API}.
+.2 routes/.
+.3 contact.js\DTcomment{Express router for contact form submission}.
+.2 services/.
+.3 emailService.js\DTcomment{Integration with Resend API for email delivery}.
+.2 index.js\DTcomment{Express server entry point and setup}.
+.2 package-lock.json\DTcomment{Dependency lockfile for backend}.
+.2 package.json\DTcomment{Backend project manifest and scripts}.
+}
+
+\section{Prerequisites}
+\begin{itemize}
+    \item Node.js v18 or higher
+    \item npm v9 or higher
+    \item A free Resend account for email delivery
+    \item A verified sender domain or email on Resend
+\end{itemize}
+
+\section{Getting Started — Local Development}
+\begin{enumerate}
+    \item Clone the repository and navigate into the project root.
+    \item Install server dependencies: \texttt{cd server \&\& npm install}
+    \item Install client dependencies: \texttt{cd ../client \&\& npm install}
+    \item Copy the environment file: \texttt{cp .env.example .env}
+    \item Fill in all environment variable values (explained in the next section).
+    \item Open two terminal windows:
+    \begin{itemize}
+        \item In the first, run the backend: \texttt{cd server \&\& npm run dev}
+        \item In the second, run the frontend: \texttt{cd client \&\& npm run dev}
+    \end{itemize}
+    \item Open \texttt{http://localhost:5173} in a browser.
+\end{enumerate}
+
+\section{Environment Variables}
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{l X l}
+\toprule
+\textbf{Variable} & \textbf{Description} & \textbf{Example Value} \\
+\midrule
+\texttt{PORT} & Port the Express server listens on & \texttt{5000} \\
+\texttt{CLIENT\_URL} & The frontend origin for CORS & \texttt{http://localhost:5173} \\
+\texttt{EMAIL\_FROM} & Verified sender email on Resend & \texttt{hello@yourdomain.com} \\
+\texttt{EMAIL\_TO} & Recipient email for enquiries & \texttt{your@email.com} \\
+\texttt{RESEND\_API\_KEY} & API key from resend.com dashboard & \texttt{re\_xxxxxxxxxxxx} \\
+\texttt{NODE\_ENV} & Environment mode & \texttt{development} or \texttt{production} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{API Reference}
+\subsection*{Backend API}
+
+\textbf{\texttt{GET /api/health}}
+\begin{itemize}
+    \item \textbf{Description}: Health check endpoint. No request body, returns \texttt{\{ status: 'ok', timestamp: '...', environment: '...' \}}, HTTP 200. Used for deployment health checks.
+\end{itemize}
+
+\textbf{\texttt{POST /api/contact}}
+\begin{itemize}
+    \item \textbf{Description}: Request body is JSON with fields: \texttt{name} (string, required), \texttt{phone} (string, required, 10-digit Indian mobile), \texttt{service} (string, required, one of five enum values), \texttt{message} (string, optional, max 500 characters).
+    \item \textbf{Responses}:
+        \begin{itemize}
+            \item Success response HTTP 200: \texttt{\{ success: true, message: '...' \}}
+            \item Validation error HTTP 422: \texttt{\{ errors: [...] \}}
+            \item Rate limit error HTTP 429: \texttt{\{ error: '...' \}}
+            \item Server error HTTP 500: \texttt{\{ error: '...' \}}
+        \end{itemize}
+\end{itemize}
+
+\section{Form Validation Rules}
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Field Name} & \textbf{Rule} & \textbf{Error Message} \\
+\midrule
+\texttt{name} & Must be at least 2 characters long & Name must be at least 2 characters long \\
+\texttt{phone} & Must be a valid 10-digit Indian mobile number & Phone number must be 10 digits \\
+\texttt{service} & Must be one of the predefined service enum values & Please select a valid service \\
+\texttt{message} & Max 500 characters, optional & Message must be less than 500 characters \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Deployment}
+\subsection*{Frontend}
+Explain how to run \texttt{npm run build} inside \texttt{client/}, which generates a \texttt{dist/} folder. This folder can be deployed to Vercel, Netlify, or any static host. On Vercel: connect the GitHub repo, set the root directory to \texttt{client/}, and add all environment variables in the dashboard.
+
+\subsection*{Backend}
+The Express server can be deployed to Railway, Render, or Fly.io. Set all environment variables in the platform dashboard. Set \texttt{NODE\_ENV=production}. Ensure \texttt{CLIENT\_URL} is updated to the live frontend URL so CORS works correctly in production.
+
+\section{Assignment Compliance}
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{l c X}
+\toprule
+\textbf{Requirement} & \textbf{Status} & \textbf{Implementation} \\
+\midrule
+Header/Navbar & \checkmark & Sticky navbar built with Framer Motion scroll detection \\
+Hero Section & \checkmark & Engaging hero with CTA and preloaded LCP image \\
+Services Section & \checkmark & 5 interactive service cards (exceeds minimum of 3) \\
+Contact Form & \checkmark & Includes Name, Phone, Service dropdown, Message, Submit \\
+Mobile Responsive & \checkmark & Tailwind CSS mobile-first utility classes \\
+Basic Animations & \checkmark & Framer Motion staggered reveals and hover effects \\
+SEO Friendly Structure & \checkmark & Semantic HTML, Open Graph tags, JSON-LD schema \\
+Clean Code Structure & \checkmark & Separation of concerns, clear component hierarchy \\
+GitHub submission & \checkmark & Public repository with comprehensive documentation \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+\section{Technical Architecture}
+
+\subsection{System Overview}
+The SwiftMove project is structured as a monorepo containing two workspaces — client and server. The client is a React application built with Vite, while the server is a Node.js API powered by Express. In development, the two workspaces communicate via Vite's local proxy to avoid CORS issues. In production, the client makes direct API calls to the deployed backend URL.
+
+\subsection{Architecture Diagram}
+\begin{verbatim}
+Browser
+  | (HTTP/HTTPS)
+  v
+Vite Dev Server (Port 5173 - Proxy)  /  CDN (Production)
+  |
+  | (HTTP POST /api/contact)
+  v
+Express API (Port 5000)
+  |
+  +- Rate Limiter Middleware
+  +- Validation Middleware
+  +- Route Handler
+  |
+  | (HTTPS POST)
+  v
+Resend API
+  |
+  | (SMTP)
+  v
+Email Inbox
+\end{verbatim}
+
+\subsection{Frontend Architecture}
+The frontend follows a component-based architecture: \texttt{main.jsx} mounts \texttt{App.jsx} which composes all five section components in order. 
+
+\textbf{Separation of Concerns:}
+Form logic lives in \texttt{useContactForm} hook, validation schema lives in \texttt{utils/validators.js}, and components only handle rendering. \texttt{react-hook-form} with \texttt{zodResolver} was chosen over manual state management — controlled inputs at scale cause unnecessary re-renders, uncontrolled inputs via RHF are more performant. The Vite proxy setup avoids hardcoded URLs.
+
+\subsection{Backend Architecture}
+The middleware chain for the contact route executes in order:
+\begin{enumerate}
+    \item \textbf{Rate Limiter}: Runs first and rejects abusive IPs.
+    \item \textbf{Validator Chain}: Runs next and rejects malformed input.
+    \item \textbf{Route Handler}: Runs only if both pass, calling the email service.
+    \item \textbf{Response}: Result is sent back.
+\end{enumerate}
+Each layer is separate for single responsibility, testability, and reusability. Helmet is applied globally rather than per-route. The global error handler is registered last.
+
+\subsection{Security Decisions}
+\begin{itemize}
+    \item \textbf{CORS with explicit origin}: Prevents unauthorized cross-origin requests.
+    \item \textbf{Helmet headers}: Prevents clickjacking, MIME sniffing, XSS via headers.
+    \item \textbf{Payload size limit (10kb)}: Prevents request flooding.
+    \item \textbf{Rate limiting}: Prevents form spam and brute force.
+    \item \textbf{express-validator}: Prevents malformed or malicious input reaching the email service.
+    \item \textbf{No stack traces in production}: Prevents internal detail leakage.
+\end{itemize}
+
+\subsection{Validation Strategy}
+Validation is applied on both the frontend with Zod and the backend with express-validator. Frontend validation gives instant user feedback and reduces unnecessary API calls, backend validation is the security layer that cannot be bypassed by disabling JavaScript or calling the API directly. Both schemas enforce identical rules, making the contract consistent end to end.
+
+\subsection{Email Delivery}
+Resend was chosen over Nodemailer because Resend has a modern SDK, better deliverability via dedicated infrastructure, and does not require managing SMTP credentials. The HTML email template surfaces all four fields clearly for the business owner reading the enquiry.
+
+\subsection{Performance Decisions}
+Vite manual chunk splitting separates vendor libraries like Framer Motion and React Icons into a separate chunk, improving caching since the vendor chunk changes less frequently than the app chunk. \texttt{whileInView} animations use \texttt{once: true} because replaying animations on scroll-up creates visual noise and hurts perceived performance. The hero image preload link in \texttt{index.html} matters for LCP score.
+
+\vspace{2em}
+\noindent\textit{MIT License — feel free to use this project as a reference.}
+
+\end{document}

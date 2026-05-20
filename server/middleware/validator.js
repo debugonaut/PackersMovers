@@ -32,9 +32,10 @@ export const validateContact = [
       'vehicle-transport',
       'warehouse-storage',
       'international-moving',
+      'packing-unpacking',
     ])
     .withMessage(
-      'Invalid service type. Must be one of: home-shifting, office-relocation, vehicle-transport, warehouse-storage, international-moving.'
+      'Invalid service type. Must be one of: home-shifting, office-relocation, vehicle-transport, warehouse-storage, international-moving, packing-unpacking.'
     ),
 
   // 4. message — optional, trimmed, max 500 characters

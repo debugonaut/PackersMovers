@@ -26,7 +26,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? 'bg-brand-dark/90 backdrop-blur-md shadow-md py-4'
+          ? 'bg-brand-light/95 backdrop-blur-md border-b border-brand-dark/10 shadow-sm py-4'
           : 'bg-transparent py-6'
       }`}
       aria-label="Main navigation"
@@ -39,7 +39,7 @@ export default function Navbar() {
           aria-label="SwiftMove Home"
         >
           <FaTruckFast className="text-brand-primary text-3xl group-hover:scale-110 transition-transform duration-300" />
-          <span className="font-display font-semibold text-2xl tracking-tight text-white">
+          <span className="font-display font-semibold text-2xl tracking-tight text-brand-dark">
             Swift<span className="text-brand-primary">Move</span>
           </span>
         </a>
@@ -51,7 +51,7 @@ export default function Navbar() {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-white/90 hover:text-brand-primary transition-colors duration-200 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-sm"
+                  className="text-brand-dark/80 hover:text-brand-primary transition-colors duration-200 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-sm"
                   aria-label={`Navigate to ${link.name} section`}
                 >
                   {link.name}
@@ -66,7 +66,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white p-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+          className="md:hidden text-brand-dark p-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
@@ -86,14 +86,14 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="absolute top-full left-0 w-full bg-brand-surface border-t border-white/10 shadow-xl md:hidden"
+            className="absolute top-full left-0 w-full bg-brand-light border-t border-brand-dark/10 shadow-xl md:hidden"
           >
             <ul className="flex flex-col py-4 px-6 space-y-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="block w-full text-lg font-medium text-white hover:text-brand-primary transition-colors py-2"
+                    className="block w-full text-lg font-medium text-brand-dark hover:text-brand-primary transition-colors py-2"
                     onClick={() => setMenuOpen(false)}
                     aria-label={`Navigate to ${link.name} section`}
                   >

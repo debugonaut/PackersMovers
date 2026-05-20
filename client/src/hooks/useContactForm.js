@@ -12,6 +12,7 @@ import { contactSchema } from '../utils/validators';
  */
 export function useContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const {
     register,
@@ -36,6 +37,7 @@ export function useContactForm() {
       const result = await response.json();
 
       if (response.ok) {
+        setIsSuccess(true);
         toast.success(result.message || 'Your request has been submitted!');
         reset();
       } else {
@@ -53,6 +55,7 @@ export function useContactForm() {
     handleSubmit,
     errors,
     isSubmitting,
+    isSuccess,
     onSubmit,
   };
 }

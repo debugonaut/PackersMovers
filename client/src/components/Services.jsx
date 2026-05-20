@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaHome, FaBuilding, FaCar, FaWarehouse, FaGlobe, FaArrowRight } from 'react-icons/fa';
+import { FaHome, FaBuilding, FaCar, FaWarehouse, FaGlobe, FaArrowRight, FaBoxOpen } from 'react-icons/fa';
 
 export default function Services() {
   const servicesData = [
@@ -33,10 +33,16 @@ export default function Services() {
       description: 'Hassle-free global relocation including customs clearance and door-to-door delivery.',
       icon: FaGlobe,
     },
+    {
+      id: 'packing-unpacking',
+      title: 'Packing & Unpacking',
+      description: 'Professional wrapping with bubble wrap, foam and custom crates for art and antiques. Unpacking and arranging at destination included.',
+      icon: FaBoxOpen,
+    },
   ];
 
   return (
-    <section id="services" aria-label="Our services" className="section-padding bg-brand-light text-brand-dark">
+    <section id="services" aria-label="Our services" className="section-padding bg-brand-light text-brand-dark border-t border-brand-dark/5">
       <div className="container-max">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -44,7 +50,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-semibold tracking-wider uppercase mb-4"
+            className="inline-block px-3 py-1 bg-brand-primary/10 text-brand-dark rounded-full text-sm font-semibold tracking-wider uppercase mb-4"
           >
             What We Do
           </motion.span>
@@ -69,7 +75,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-brand-muted text-lg"
+            className="text-brand-muted text-lg font-light"
           >
             We offer comprehensive relocation solutions tailored to meet your specific needs with utmost care and professionalism.
           </motion.p>
@@ -84,17 +90,17 @@ export default function Services() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
-              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group flex flex-col h-full border-t-4 border-transparent hover:border-brand-primary"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ y: -6, transition: { type: 'spring', stiffness: 300 } }}
+              className="bg-brand-surface/40 border border-brand-dark/10 rounded-xl p-8 hover:shadow-glow hover:border-brand-primary/50 transition-all duration-300 relative overflow-hidden group flex flex-col h-full"
             >
-              <div className="w-14 h-14 bg-brand-light rounded-lg flex items-center justify-center mb-6 text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
-                <service.icon size={28} />
+              <div className="w-14 h-14 bg-brand-light border border-brand-dark/5 rounded-lg flex items-center justify-center mb-6 text-brand-primary group-hover:bg-brand-primary group-hover:text-brand-light transition-colors duration-300">
+                <service.icon size={26} />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3">
+              <h3 className="text-xl font-display font-bold text-brand-dark mb-3">
                 {service.title}
               </h3>
-              <p className="text-brand-muted mb-6 flex-grow leading-relaxed">
+              <p className="text-brand-muted/95 mb-6 flex-grow leading-relaxed text-sm font-light">
                 {service.description}
               </p>
               <a

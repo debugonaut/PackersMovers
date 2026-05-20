@@ -23,6 +23,7 @@ export const contactSchema = z.object({
       'vehicle-transport',
       'warehouse-storage',
       'international-moving',
+      'packing-unpacking',
     ],
     {
       error: 'Please select a service',
@@ -43,4 +44,5 @@ export const SERVICE_OPTIONS = [
   { value: 'vehicle-transport', label: 'Vehicle Transport' },
   { value: 'warehouse-storage', label: 'Warehouse Storage' },
   { value: 'international-moving', label: 'International Moving' },
+  { value: 'packing-unpacking', label: 'Packing & Unpacking' },
 ];

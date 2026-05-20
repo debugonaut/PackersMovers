@@ -4,18 +4,18 @@
 /* ── Brand Design Tokens (Tailwind v4 CSS-first config) ── */
 @theme {
   /* Colors */
-  --color-brand-primary: #E8480A;
-  --color-brand-dark: #0F0F0F;
-  --color-brand-surface: #1A1A1A;
-  --color-brand-muted: #6B7280;
-  --color-brand-light: #F5F5F0;
+  --color-brand-primary: #306D29;
+  --color-brand-dark: #0D530E;
+  --color-brand-surface: #E7E1B1;
+  --color-brand-muted: #4D6D49;
+  --color-brand-light: #FBF5DD;
 
   /* Font Families */
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
   /* Box Shadow */
-  --shadow-glow: 0 0 20px rgba(232, 72, 10, 0.15), 0 0 60px rgba(232, 72, 10, 0.08);
+  --shadow-glow: 4px 4px 0px #0D530E;
 
   /* Animations */
   --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
@@ -35,10 +35,10 @@
 
 /* ── CSS Custom Properties (non-Tailwind consumers) ── */
 :root {
-  --brand-primary: #E8480A;
-  --brand-dark: #0F0F0F;
-  --brand-surface: #1A1A1A;
-  --brand-light: #F5F5F0;
+  --brand-primary: #306D29;
+  --brand-dark: #0D530E;
+  --brand-surface: #E7E1B1;
+  --brand-light: #FBF5DD;
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
@@ -50,8 +50,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--brand-dark);
-  color: #ffffff;
+  background-color: var(--brand-light);
+  color: #1a2f17;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -104,9 +104,9 @@ body {
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
   .btn-primary:hover {
-    background-color: #c93d08;
+    background-color: #1c4d15;
     transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(232, 72, 10, 0.25);
+    box-shadow: 2px 2px 0px var(--brand-dark);
   }
   .btn-primary:focus-visible {
     outline: 2px solid var(--brand-primary);
